@@ -49,3 +49,4 @@ Este projeto é licenciado sob a licença MIT.
 ## Contato
 
 Se você tiver alguma dúvida ou sugestão, sinta-se à vontade para entrar em contato.
+https://www.linkedin.com/in/jairo-soares/
