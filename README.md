@@ -1,6 +1,3 @@
-# ktor-lab
-API with Kotlin and Ktor
-
 # Aplicação Kotlin com Ktor, MongoDB CRUD e H2 CRUD
 
 ## Sobre o Projeto
