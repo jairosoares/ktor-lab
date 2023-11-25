@@ -1,0 +1,53 @@
+Folder PATH listing
+Volume serial number is F49F-8094
+C:.
+¦   output.txt
+¦   
++---main
+¦   +---kotlin
+¦   ¦   +---com
+¦   ¦       +---example
+¦   ¦           ¦   Application.kt
+¦   ¦           ¦   
+¦   ¦           +---adapter
+¦   ¦           ¦   +---repositoy
+¦   ¦           ¦       ¦   DatabaseFactory.kt
+¦   ¦           ¦       ¦   H2DatabaseFactory.kt
+¦   ¦           ¦       ¦   MongoDatabaseFactory.kt
+¦   ¦           ¦       ¦   MongoDBAtlasDatabase.kt
+¦   ¦           ¦       ¦   MongoDBLocalDatabase.kt
+¦   ¦           ¦       ¦   
+¦   ¦           ¦       +---participante
+¦   ¦           ¦       ¦       CsvParticipanteRepository.kt
+¦   ¦           ¦       ¦       ParticipanteRepository.kt
+¦   ¦           ¦       ¦       
+¦   ¦           ¦       +---user
+¦   ¦           ¦               H2UserRepository.kt
+¦   ¦           ¦               MongoDBUserRepository.kt
+¦   ¦           ¦               UserRepository.kt
+¦   ¦           ¦               
+¦   ¦           +---domain
+¦   ¦           ¦       Participante.kt
+¦   ¦           ¦       User.kt
+¦   ¦           ¦       User2.kt
+¦   ¦           ¦       UserBuilder.kt
+¦   ¦           ¦       
+¦   ¦           +---plugins
+¦   ¦           ¦       Databases.kt
+¦   ¦           ¦       IdGenerator.kt
+¦   ¦           ¦       Main.kt
+¦   ¦           ¦       Routing.kt
+¦   ¦           ¦       Serialization.kt
+¦   ¦           ¦       UsersSchema.kt
+¦   ¦           ¦       
+¦   ¦           +---usercase
+¦   +---resources
+¦           application.conf
+¦           logback.xml
+¦           
++---test
+    +---kotlin
+        +---com
+            +---example
+                    ApplicationTest.kt
+                    
