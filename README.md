@@ -32,11 +32,11 @@ A aplicação inclui testes unitários e de integração. Para executar os teste
 
 ## Arquitetura Limpa
 
-A arquitetura limpa é um padrão de design que separa as preocupações do software em camadas distintas. Isso facilita o entendimento, o desenvolvimento e a manutenção do código. No nosso projeto, seguimos a arquitetura limpa, onde as camadas mais internas (como a lógica de negócios) não dependem das camadas mais externas (como a interface do usuário ou o banco de dados).
+A arquitetura limpa é um padrão de design que separa as preocupações do software em camadas distintas. Isso facilita o entendimento, o desenvolvimento e a manutenção do código. Nesse projeto, procuro seguir e aprendendo a arquitetura limpa, onde as camadas mais internas (como a lógica de negócios) não dependem das camadas mais externas (como a interface do usuário ou o banco de dados).
 
 ## Desenvolvimento Orientado a Testes (TDD)
 
-O TDD é uma prática de desenvolvimento que envolve a escrita de testes antes de escrever o código de produção. Isso ajuda a garantir que o código seja de alta qualidade e funcione como esperado. No nosso projeto, seguimos o TDD, escrevendo testes para todas as funcionalidades antes de implementá-las.
+O TDD é uma prática de desenvolvimento que envolve a escrita de testes antes de escrever o código de produção. Isso ajuda a garantir que o código seja de alta qualidade e funcione como esperado. A partidr desse projeto, vou procurar seguir o TDD, escrevendo testes para todas as funcionalidades antes de implementá-las.
 
 ## Contribuição
 
