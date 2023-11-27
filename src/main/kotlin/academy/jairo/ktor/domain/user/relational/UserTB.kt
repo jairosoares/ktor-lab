@@ -1,4 +1,4 @@
-package academy.jairo.ktor.domain.user
+package academy.jairo.ktor.domain.user.relational
 
 import kotlinx.serialization.Serializable
 

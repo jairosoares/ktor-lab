@@ -1,4 +1,4 @@
-package academy.jairo.ktor.domain.user
+package academy.jairo.ktor.domain.user.document
 
 import academy.jairo.ktor.domain.IdGenerator
 import org.bson.types.ObjectId

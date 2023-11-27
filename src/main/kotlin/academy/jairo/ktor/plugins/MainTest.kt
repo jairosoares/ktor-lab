@@ -2,7 +2,7 @@ package academy.jairo.ktor.plugins
 
 import academy.jairo.ktor.adapter.repositoy.MongoDBAtlasDatabase
 import academy.jairo.ktor.adapter.repositoy.user.UserMongoRepository
-import academy.jairo.ktor.domain.user.UserMongo
+import academy.jairo.ktor.domain.user.document.UserMongo
 import com.mongodb.client.model.Filters
 import com.mongodb.client.model.Updates
 import com.mongodb.kotlin.client.coroutine.MongoDatabase

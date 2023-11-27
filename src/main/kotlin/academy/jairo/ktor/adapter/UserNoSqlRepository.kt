@@ -1,6 +1,6 @@
 package academy.jairo.ktor.adapter
 
-import academy.jairo.ktor.domain.user.UserMongo
+import academy.jairo.ktor.domain.user.document.UserMongo
 
 interface UserNoSqlRepository {
 

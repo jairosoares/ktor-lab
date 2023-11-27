@@ -3,10 +3,10 @@ package academy.jairo.ktor.routes
 import academy.jairo.ktor.adapter.repositoy.MongoDBAtlasDatabase
 import academy.jairo.ktor.adapter.repositoy.user.UserMongoRepository
 import academy.jairo.ktor.application.UserMongoService
-import academy.jairo.ktor.domain.user.UserMongo
-import academy.jairo.ktor.domain.user.UserMongoDTO
-import academy.jairo.ktor.domain.user.toDTO
-import academy.jairo.ktor.domain.user.toUser
+import academy.jairo.ktor.domain.user.document.UserMongo
+import academy.jairo.ktor.domain.user.document.UserMongoDTO
+import academy.jairo.ktor.domain.user.document.toDTO
+import academy.jairo.ktor.domain.user.document.toUser
 import io.ktor.http.*
 import io.ktor.server.application.*
 import io.ktor.server.request.*

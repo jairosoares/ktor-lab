@@ -1,8 +1,8 @@
 package academy.jairo.ktor.application
 
 import academy.jairo.ktor.adapter.UserSqlRepository
-import academy.jairo.ktor.domain.user.UserDTO
-import academy.jairo.ktor.domain.user.UserTB
+import academy.jairo.ktor.domain.user.relational.UserDTO
+import academy.jairo.ktor.domain.user.relational.UserTB
 
 class UserService (private val userSqlRepository: UserSqlRepository) {
 

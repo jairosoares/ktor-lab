@@ -1,7 +1,7 @@
 package academy.jairo.ktor.adapter.repositoy.user
 
 import academy.jairo.ktor.adapter.UserNoSqlRepository
-import academy.jairo.ktor.domain.user.UserMongo
+import academy.jairo.ktor.domain.user.document.UserMongo
 import com.mongodb.client.model.Filters
 import com.mongodb.client.result.DeleteResult
 import com.mongodb.kotlin.client.coroutine.MongoDatabase

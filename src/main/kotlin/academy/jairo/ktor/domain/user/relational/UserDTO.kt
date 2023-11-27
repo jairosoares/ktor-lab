@@ -1,7 +1,6 @@
-package academy.jairo.ktor.domain.user
+package academy.jairo.ktor.domain.user.relational
 
 import kotlinx.serialization.Serializable
-import org.bson.types.ObjectId
 
 @Serializable
 data class UserDTO (

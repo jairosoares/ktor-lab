@@ -1,9 +1,11 @@
 package academy.jairo.ktor.routes
 
 import academy.jairo.ktor.adapter.repositoy.H2Database
-import academy.jairo.ktor.adapter.repositoy.user.UserH2Repository
+import academy.jairo.ktor.adapter.repositoy.MySQLDatabase
+import academy.jairo.ktor.adapter.repositoy.PostgreSQLDatabase
+import academy.jairo.ktor.adapter.repositoy.user.UsersRepository
 import academy.jairo.ktor.application.UserService
-import academy.jairo.ktor.domain.user.UserDTO
+import academy.jairo.ktor.domain.user.relational.UserDTO
 import io.ktor.http.*
 import io.ktor.server.application.*
 import io.ktor.server.request.*
@@ -12,8 +14,8 @@ import io.ktor.server.routing.*
 
 fun Application.configureUseRouting() {
 
-    val database = H2Database()
-    val userRepository = UserH2Repository(database.create())
+    val database = MySQLDatabase()
+    val userRepository = UsersRepository(database.create())
     val userService = UserService(userRepository)
 
     routing {

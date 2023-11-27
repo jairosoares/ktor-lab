@@ -1,7 +1,7 @@
 package academy.jairo.ktor.application
 
 import academy.jairo.ktor.adapter.UserNoSqlRepository
-import academy.jairo.ktor.domain.user.UserMongo
+import academy.jairo.ktor.domain.user.document.UserMongo
 
 
 class UserMongoService(private val userNoSqlRepository: UserNoSqlRepository) {

@@ -1,23 +1,16 @@
 package academy.jairo.ktor.adapter.repositoy.user
 
 import academy.jairo.ktor.adapter.UserSqlRepository
-import academy.jairo.ktor.domain.user.UserDTO
-import academy.jairo.ktor.domain.user.UserTB
+import academy.jairo.ktor.domain.user.relational.UserDTO
+import academy.jairo.ktor.domain.user.relational.UserTB
+import academy.jairo.ktor.domain.user.relational.Users
 import kotlinx.coroutines.Dispatchers
 import org.jetbrains.exposed.sql.*
 import org.jetbrains.exposed.sql.SqlExpressionBuilder.eq
 import org.jetbrains.exposed.sql.transactions.experimental.newSuspendedTransaction
 import org.jetbrains.exposed.sql.transactions.transaction
 
-class UserH2Repository(private val database: Database): UserSqlRepository {
-
-    object Users : Table() {
-        val id = long("id").autoIncrement()
-        val name = varchar("name", length = 50)
-        val age = integer("age")
-
-        override val primaryKey = PrimaryKey(id)
-    }
+class UsersRepository(private val database: Database): UserSqlRepository {
 
     init {
         transaction(database) {
@@ -25,8 +18,11 @@ class UserH2Repository(private val database: Database): UserSqlRepository {
         }
     }
 
-    private suspend fun <T> dbQuery(block: suspend () -> T): T =
-        newSuspendedTransaction(Dispatchers.IO) { block() }
+    private suspend fun <T> dbQuery(
+        block: suspend () -> T
+    ): T = newSuspendedTransaction(Dispatchers.IO) {
+        block()
+    }
 
     override suspend fun create(user: UserDTO): UserTB {
         val newUser = dbQuery {
@@ -35,13 +31,14 @@ class UserH2Repository(private val database: Database): UserSqlRepository {
                 it[age] = user.age
             }.let { UserTB(it[Users.id], it[Users.name], it[Users.age]) }
         }
+
         return newUser
     }
 
     override suspend fun findById(id: Long): UserTB? {
         return dbQuery {
             Users.select() { Users.id eq id }
-                .map { UserTB( it[Users.id], it[Users.name], it[Users.age]) }
+                .map { rowToUserTB(it) }
                 .singleOrNull()
         }
     }
@@ -64,8 +61,12 @@ class UserH2Repository(private val database: Database): UserSqlRepository {
     }
 
     override suspend fun findAll(): List<UserTB> = dbQuery {
-        Users.selectAll()
-            .map { UserTB(it[Users.id], it[Users.name], it[Users.age]) }
+        Users.selectAll().map { rowToUserTB(it) }
     }
 
+    private fun rowToUserTB(row: ResultRow) = UserTB(
+        row[Users.id],
+        row[Users.name],
+        row[Users.age]
+    )
 }

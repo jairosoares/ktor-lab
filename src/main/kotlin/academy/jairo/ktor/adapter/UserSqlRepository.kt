@@ -1,7 +1,7 @@
 package academy.jairo.ktor.adapter
 
-import academy.jairo.ktor.domain.user.UserDTO
-import academy.jairo.ktor.domain.user.UserTB
+import academy.jairo.ktor.domain.user.relational.UserDTO
+import academy.jairo.ktor.domain.user.relational.UserTB
 
 interface UserSqlRepository {
 
