@@ -9,6 +9,8 @@ Este projeto é uma aplicação Kotlin que utiliza o framework Ktor para criar u
 - JDK 11 ou superior
 - MongoDB instalado e em execução
 - H2 Database instalado e em execução
+- MySQL Database instalado e em execução
+- PostgreSQL Database instalado e em execução
 
 ## Como Executar
 
