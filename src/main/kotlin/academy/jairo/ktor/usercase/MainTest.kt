@@ -1,4 +1,4 @@
-package academy.jairo.ktor.plugins
+package academy.jairo.ktor.usercase
 
 import academy.jairo.ktor.adapter.repositoy.MongoDBAtlasDatabase
 import academy.jairo.ktor.adapter.repositoy.user.UserMongoRepository

@@ -1,4 +1,4 @@
-package academy.jairo.ktor.routes
+package academy.jairo.ktor.plugins
 
 import io.ktor.server.application.*
 import io.ktor.server.response.*

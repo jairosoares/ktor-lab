@@ -4,6 +4,7 @@ import academy.jairo.ktor.adapter.UserSqlRepository
 import academy.jairo.ktor.domain.user.relational.UserDTO
 import academy.jairo.ktor.domain.user.relational.UserTB
 import academy.jairo.ktor.domain.user.relational.Users
+import academy.jairo.ktor.exception.EntityNotFoundException
 import kotlinx.coroutines.Dispatchers
 import org.jetbrains.exposed.sql.*
 import org.jetbrains.exposed.sql.SqlExpressionBuilder.eq
@@ -39,11 +40,12 @@ class UsersRepository(private val database: Database): UserSqlRepository {
         return dbQuery {
             Users.select() { Users.id eq id }
                 .map { rowToUserTB(it) }
-                .singleOrNull()
+                .singleOrNull() ?: throw EntityNotFoundException("User with $id not found")
         }
     }
 
     override suspend fun update(id: Long, user: UserDTO) : Boolean {
+        findById(id)
         return dbQuery {
             val affectedRows = Users.update({ Users.id eq id }) {
                 it[name] = user.name
@@ -54,6 +56,7 @@ class UsersRepository(private val database: Database): UserSqlRepository {
     }
 
     override suspend fun delete(id: Long) : Boolean {
+        findById(id)
         return dbQuery {
             val affectedRows = Users.deleteWhere { Users.id.eq(id) }
             affectedRows > 0

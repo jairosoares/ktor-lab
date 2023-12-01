@@ -2,7 +2,7 @@ package academy.jairo.ktor.routes
 
 import academy.jairo.ktor.adapter.repositoy.MongoDBAtlasDatabase
 import academy.jairo.ktor.adapter.repositoy.user.UserMongoRepository
-import academy.jairo.ktor.application.UserMongoService
+import academy.jairo.ktor.service.UserMongoService
 import academy.jairo.ktor.domain.user.document.UserMongo
 import academy.jairo.ktor.domain.user.document.UserMongoDTO
 import academy.jairo.ktor.domain.user.document.toDTO

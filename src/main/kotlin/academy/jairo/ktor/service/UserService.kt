@@ -1,4 +1,4 @@
-package academy.jairo.ktor.application
+package academy.jairo.ktor.service
 
 import academy.jairo.ktor.adapter.UserSqlRepository
 import academy.jairo.ktor.domain.user.relational.UserDTO
