@@ -1,6 +1,6 @@
 package academy.jairo.ktor
 
-import com.example.routes.configureRouting
+import academy.jairo.ktor.plugins.configureRouting
 import io.ktor.client.request.*
 import io.ktor.client.statement.*
 import io.ktor.http.*

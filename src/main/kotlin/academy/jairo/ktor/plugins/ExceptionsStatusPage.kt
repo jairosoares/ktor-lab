@@ -1,6 +1,7 @@
 package academy.jairo.ktor.plugins
 
 import academy.jairo.ktor.exception.ExceptionHandler
+import io.ktor.http.*
 import io.ktor.server.application.*
 import io.ktor.server.plugins.statuspages.*
 

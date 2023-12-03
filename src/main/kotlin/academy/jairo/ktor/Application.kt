@@ -1,18 +1,16 @@
 package academy.jairo.ktor
 
+import academy.jairo.ktor.adapter.repositoy.MongoDBAtlasDatabase
+import academy.jairo.ktor.adapter.repositoy.PostgreSQLDatabase
 import academy.jairo.ktor.plugins.configureException
 import academy.jairo.ktor.plugins.configureRouting
 import academy.jairo.ktor.plugins.configureSerialization
 import academy.jairo.ktor.routes.configureUseRouting
 import academy.jairo.ktor.routes.configureUserMongoRouting
-import io.ktor.http.*
 import io.ktor.server.application.*
 import io.ktor.server.engine.*
 import io.ktor.server.netty.*
-import io.ktor.server.plugins.*
 import io.ktor.server.plugins.defaultheaders.*
-import io.ktor.server.plugins.statuspages.*
-import io.ktor.server.response.*
 
 fun main() {
     embeddedServer(
@@ -25,12 +23,18 @@ fun main() {
 }
 
 fun Application.module() {
-    install(DefaultHeaders)
 
+    install(DefaultHeaders) {
+        header("My-Header", "My Value")
+    }
     configureException()
     configureSerialization()
     configureRouting()
-    configureUseRouting()
-    configureUserMongoRouting()
+
+    val database = PostgreSQLDatabase().create()
+    configureUseRouting(database)
+
+    //val database = MongoDBAtlasDatabase().create()
+    //configureUserMongoRouting(database)
 
 }

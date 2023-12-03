@@ -15,19 +15,23 @@ object ExceptionHandler {
             is EntityNotFoundException -> {
                 call.respond(
                     HttpStatusCode.NotFound,
-                    ExceptionResponse(cause.message ?: cause.toString(),  HttpStatusCode.NotFound.value)
+                    ExceptionResponse(
+                        "${HttpStatusCode.NotFound.value} - ${HttpStatusCode.NotFound.description}",
+                        cause.message ?: cause.toString())
                 )
             }
             is ParameterException -> {
                 call.respond(
                     HttpStatusCode.BadRequest,
-                    ExceptionResponse(cause.message ?: cause.toString(),  HttpStatusCode.BadRequest.value)
+                    ExceptionResponse("${HttpStatusCode.BadRequest.value} - ${HttpStatusCode.BadRequest.description}",
+                        cause.message ?: cause.toString(),)
                 )
             }
             is BusinessException -> {
                 call.respond(
                     HttpStatusCode.PreconditionFailed,
-                    ExceptionResponse(cause.message ?: cause.toString(),  cause.messageCode.value)
+                    ExceptionResponse(cause.messageCode.value.toString(),
+                        cause.message ?: cause.toString())
                 )
             }
             else -> {

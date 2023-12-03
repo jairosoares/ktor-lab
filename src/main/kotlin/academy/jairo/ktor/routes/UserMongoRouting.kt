@@ -1,22 +1,21 @@
 package academy.jairo.ktor.routes
 
-import academy.jairo.ktor.adapter.repositoy.MongoDBAtlasDatabase
 import academy.jairo.ktor.adapter.repositoy.user.UserMongoRepository
-import academy.jairo.ktor.service.UserMongoService
 import academy.jairo.ktor.domain.user.document.UserMongo
 import academy.jairo.ktor.domain.user.document.UserMongoDTO
 import academy.jairo.ktor.domain.user.document.toDTO
 import academy.jairo.ktor.domain.user.document.toUser
+import academy.jairo.ktor.service.UserMongoService
+import com.mongodb.kotlin.client.coroutine.MongoDatabase
 import io.ktor.http.*
 import io.ktor.server.application.*
 import io.ktor.server.request.*
 import io.ktor.server.response.*
 import io.ktor.server.routing.*
 
-fun Application.configureUserMongoRouting() {
+fun Application.configureUserMongoRouting(database: MongoDatabase) {
 
-    val database = MongoDBAtlasDatabase()
-    val userRepository = UserMongoRepository(database.create())
+    val userRepository = UserMongoRepository(database)
     val userMongoService = UserMongoService(userRepository)
 
     routing {
